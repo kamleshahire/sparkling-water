@@ -1,5 +1,7 @@
 description = "Sparkling Water ML Pipelines"
 
+apply from: "$rootDir/gradle/sparkTest.gradle"
+
 dependencies {
   // Sparkling Water Core
   compile( project(":sparkling-water-core") ) { 
