@@ -75,12 +75,14 @@ pip install future
 > To avoid running tests, use the `-x test -x integTest` or `-x check` option. 
 
 > To build only a specific module, use, for example, `./gradlew :sparkling-water-examples:build`.
-> To build test a specific module, use, for example,  `./gradlew :sparkling-water-examples:check`.
+> To build and test a specific module, use, for example,  `./gradlew :sparkling-water-examples:check`.
+
 ---
 <a name="Binary"></a>
 ### Download Binaries
 For each Sparkling Water you can download binaries here:
    * [Sparkling Water - Latest version](http://h2o-release.s3.amazonaws.com/sparkling-water/master/latest.html)
+   * [Sparkling Water - Latest 2.0 version](http://h2o-release.s3.amazonaws.com/sparkling-water/rel-2.0/latest.html)
    * [Sparkling Water - Latest 1.6 version](http://h2o-release.s3.amazonaws.com/sparkling-water/rel-1.6/latest.html)
    * [Sparkling Water - Latest 1.5 version](http://h2o-release.s3.amazonaws.com/sparkling-water/rel-1.5/latest.html)
    * [Sparkling Water - Latest 1.4 version](http://h2o-release.s3.amazonaws.com/sparkling-water/rel-1.4/latest.html)
@@ -124,20 +126,20 @@ availability.
 Here we show a few examples how H2OContext can be started.
 
 Explicitly specify internal backend on `H2OConf`
-```
+```scala
 val conf = new H2OConf(sc).setInternalClusterMode()
 val h2oContext = H2OContext.getOrCreate(sc, conf)
 ```
 
 If `spark.ext.h2o.backend.cluster.mode` property was set to `internal` either on command line or on the `SparkConf` class
  we can call:
-```
+```scala
 val h2oContext = H2OContext.getOrCreate(sc) 
 ```
 
 or
 
-```
+```scala
 val conf = new H2OConf(sc)
 val h2oContext = H2OContext.getOrCreate(sc, conf)
 ```
